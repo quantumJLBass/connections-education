@@ -73,12 +73,12 @@ if (!class_exists('Connections_Education')) {
 			}
 			cnEntry_Action::meta('update', $entryId, array(
 				array(
-					'key' => "cnbenefits",
+					'key' => "cneducation",
 					'value' =>$tmp
 				)
 			));
 			return;
-		}			
+		}	
 		public static function loadTextdomain() {
 
 			// Plugin's unique textdomain string.
@@ -132,7 +132,7 @@ if (!class_exists('Connections_Education')) {
 			);
 
 			foreach($education as $slug=>$label){
-				$out .='<label>'.$label.'<br/><input type="text" name="cneducation[\''.$slug.'\']" value="'.$value.'" /></label><br/>';	
+				$out .='<label>'.$label.'<br/><input type="text" name="cneducation[\''.$slug.'\']" value="'.(isset($value[$slug])?$value[$slug]:"").'" /></label><br/>';	
 			}
 
 			printf( '%s', $out);
